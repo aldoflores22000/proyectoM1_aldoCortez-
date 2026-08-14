@@ -20,7 +20,7 @@ header{
 }
 
 h1 {
-  font-size: 2.5rem;          /* tamaño grande */
+  font-size: 3.5rem;          /* tamaño grande */
   font-weight: 800;           /* muy grueso */
   text-align: center;         /* centrado horizontal */
   color: #222;                /* color fuerte */
@@ -45,25 +45,66 @@ h1 {
 
 
 /*controles*/
-section{
-    text-align: center;
-    margin: 15px 0;
+.top-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;                 /* espacio entre bloques */
+  background: #fff;
+  border: 2px solid #0077cc;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 700px;
+  margin: 30px auto;
 }
 
-.top-selector{
-    text-align: center;
+/* Bloques internos */
+.selector-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-label{
-    margin-right: 10px;
+/* Label y select */
+.selector-block label {
+  font-weight: bold;
+  color: #0077cc;
+  margin-bottom: 5px;
 }
 
-#palette-size{
-    padding: 5px;
-    -webkit-box-shadow: 3px 3px 7px 0px #000000;
--moz-box-shadow: 3px 3px 7px 0px #000000;
-box-shadow: 3px 3px 7px 0px #000000;
+.selector-block select {
+  padding: 8px 12px;
+  border: 2px solid #0077cc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+.selector-block select:hover {
+  background-color: #e6f0fa;
+}
+
+/* Opciones de formato */
+.format-options {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.format-options label {
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+}
+
+.format-options input[type="radio"] {
+  margin-right: 5px;
+  accent-color: #0077cc; /* color del radio button */
+}
+
 
 button{
     padding: 10px 20px;

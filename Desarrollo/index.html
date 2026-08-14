@@ -19,17 +19,34 @@
   <main>
     <!-- Aquí se muestra el area y boton de generar -->
     <section class="top-selector">
-      <label for="palette-size">Tamaño de la paleta:</label>
-      <select id="palette-size">
-        <option value="6">6 colores</option>
-        <option value="8">8 colores</option>
-        <option value="9">9 colores</option>
-      </select>
-    </section>
+  <div class="selector-block">
+    <label for="palette-size">Cantidad de colores:</label>
+    <select id="palette-size">
+      <option value="6">6 colores</option>
+      <option value="8">8 colores</option>
+      <option value="9">9 colores</option>
+    </select>
+  </div>
 
-    <section>
-      <button id="generate-btn">Generar paleta</button>
-    </section>
+  <div class="selector-block">
+    <span>Formato:</span>
+    <div class="format-options">
+      <label>
+        <input type="radio" name="format" value="hsl" checked>
+        HSL
+      </label>
+      <label>
+        <input type="radio" name="format" value="hex">
+        HEX
+      </label>
+    </div>
+  </div>
+    <div>
+        <button id="generate-btn">Generar paleta</button>
+    </div>
+</section>
+
+    
 
     <section id="palette-container">
       <!-- Aquí se mostrarán los colores generados -->
