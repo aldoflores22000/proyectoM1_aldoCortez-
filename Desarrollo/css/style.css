@@ -14,22 +14,23 @@ body{
 }
 
 /*header*/
-/*header{
+header{
     text-align: center;
     margin-bottom: 20px;
-}*/
+}
 
 h1 {
-   
-  font-size: 3.5rem;
-  font-weight: 800;
-  text-align: center;
-  color: #222;
-  margin: 20px 0;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  opacity: 0;                  /* invisible al inicio */
-  transform: translateY(20px); /* un poco hacia abajo */
+  font-size: 2.5rem;          /* tamaño grande */
+  font-weight: 800;           /* muy grueso */
+  text-align: center;         /* centrado horizontal */
+  color: #222;                /* color fuerte */
+  margin: 40px auto;          /* espacio arriba/abajo y centrado */
+  max-width: 800px;           /* ancho máximo para que no se extienda demasiado */
+  line-height: 1.3;           /* altura de línea cómoda */
+  letter-spacing: 2px;        /* separación entre letras */
+  text-transform: uppercase;  /* todo en mayúsculas */
+  opacity: 0;                 /* invisible al inicio */
+  transform: translateY(20px);/* un poco hacia abajo */
   animation: fadeUp 1.5s ease forwards;
 }
 
