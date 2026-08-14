@@ -26,7 +26,12 @@ h1 {
 
 /*controles*/
 section{
+    text-align: center;
     margin: 15px 0;
+}
+
+.top-selector{
+    text-align: center;
 }
 
 label{
