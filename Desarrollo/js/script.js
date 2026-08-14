@@ -51,3 +51,6 @@ function generatePalette() {
 
 // 4. Conectamos el botón con la función
 btn.addEventListener("click", generatePalette);
+
+// 5. Generamos una paleta apenas carga la página
+window.addEventListener("DOMContentLoaded", generatePalette);

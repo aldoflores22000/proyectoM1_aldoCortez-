@@ -105,6 +105,20 @@ h1 {
   accent-color: #0077cc; /* color del radio button */
 }
 
+/* Botón dentro del cuadro */
+.selector-block button {
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: #FFF;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.selector-block button:hover {
+  background-color: #005fa3;
+}
 
 button{
     padding: 10px 20px;
