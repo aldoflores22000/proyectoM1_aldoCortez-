@@ -4,61 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Colorfly Studio</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
-    <nav class="nav-bar">
-      <a class="logo" href="#index.html">
-        <img src="./images/logo-color-fly-web.png" alt="Logo de Colorfly">        
+    <nav>
+      <a href="index.html" class="logo">
+        <img src="/images/color-fly-mariposa.png" alt="logo-color-fly-web">
+        <span>ColorFly</span>
       </a>
+      <ul>
+        <li>Acerca de</li>
+      </ul>
     </nav>
-    <h1>Genera Paletas de Colores en instantes</h1>
+    <h1>Genera tus paletas</h1>
   </header>
 
   <main>
-  <!-- Panel de control -->
-  <section class="control-panel">
-    <div class="selector-block">
-      <label for="palette-size">Cantidad de colores:</label>
-      <select id="palette-size">
-        <option value="6">6 colores</option>
-        <option value="8">8 colores</option>
-        <option value="9">9 colores</option>
-      </select>
-    </div>
-
-    <div class="selector-block">
-      <span>Formato:</span>
-      <div class="format-options">
-        <label><input type="radio" name="format" value="hsl" checked> HSL</label>
-        <label><input type="radio" name="format" value="hex"> HEX</label>
+    <!-- Barra de control dividida -->
+    <section class="control-panel">
+      <!-- Área izquierda -->
+      <div class="left-controls">
+        <div class="selector-block">
+          <label>Cantidad de Paletas</label>
+          <div class="palette-size-options">
+            <button class="size-btn active" data-size="6">6</button>
+            <button class="size-btn" data-size="8">8</button>
+            <button class="size-btn" data-size="9">9</button>
+          </div>
+        </div>
+        <button id="generate-btn">Generar paleta</button>
       </div>
-    </div>
 
-    <div class="selector-block">
-      <button id="generate-btn">Generar paleta</button>
-      <button id="save-btn">Guardar paleta</button>
-    </div>
-  </section>
+      <!-- Área derecha -->
+      <div class="right-controls">
+        <div class="selector-block">
+          <label>Formato</label>
+          <div class="format-options">
+            <button class="format-btn active" data-format="hsl">HSL</button>
+            <button class="format-btn" data-format="hex">HEX</button>
+          </div>
+        </div>
+        <button id="save-btn">Guardar Paleta</button>
+      </div>
+    </section>
 
-  <!-- Paleta generada -->
-  <section id="palette-container"></section>
+    <!-- Paleta generada -->
+    <section id="palette-container"></section>
 
-  <!-- Feedback -->
-  <section id="feedback"></section>
+    <!-- Feedback -->
+    <section id="feedback"></section>
 
-  <!-- Paletas guardadas -->
-  <section id="saved-palettes">
-    <h2>Paletas guardadas</h2>
-    <div id="saved-list"></div>
-  </section>
-</main>
+    <!-- Paletas guardadas -->
+    <section id="saved-palettes">
+      <h2>Paletas guardadas</h2>
+      <div id="saved-list"></div>
+    </section>
+  </main>
 
-  <footer>
+  <footer class="footer">
     <p>ColorFly una Marca de AldoC</p>
   </footer>
 
   <script src="js/script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
