@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
- 
+
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #1a1a2f, #0d0d1a);
@@ -12,15 +12,33 @@ body {
   padding: 20px;
   text-align: center;
 }
- 
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-right: 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.19);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    padding: 1rem 2rem;
 }
- 
+
+.logo  {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    
+}
+
+.logo img {
+    width: 90px;
+}
+
 h1 {
   text-align: center;
   margin: 30px auto;
@@ -29,7 +47,7 @@ h1 {
   letter-spacing: 1px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
- 
+
 /* Panel dividido */
 .control-panel {
   display: flex;
@@ -42,13 +60,13 @@ h1 {
   max-width: 1000px;
   margin: 40px auto;
 }
- 
+
 .left-controls, .right-controls {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
- 
+
 /* Botones tipo isla */
 .palette-size-options, .format-options {
 	display: flex;
@@ -57,7 +75,7 @@ h1 {
 	background-color: #ffffff4d;
 	border-radius: 14px;
 }
- 
+
 .size-btn, .format-btn {
 	background: rgba(255, 255, 255, 0.03);
 	border: 1px solid rgba(255, 255, 255, 0);
@@ -68,16 +86,16 @@ h1 {
 	transition: all 0.3s ease;
 	font-weight: 600;
 }
- 
+
 .size-btn:hover, .format-btn:hover {
   background: rgba(255,255,255,0.2);
 }
- 
+
 .size-btn.active, .format-btn.active {
 	background: #a0a0a0;
 	border-color: #fcfcfc08;
 }
- 
+
 /* Botones principales */
 #generate-btn {
   background: #0077cc;
@@ -93,7 +111,7 @@ h1 {
   -moz-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.37);
 }
 #generate-btn:hover { background: #005fa3; }
- 
+
 #save-btn {
   background: linear-gradient(45deg, #ff6a00, #ee0979);
   color: #fff;
@@ -108,22 +126,22 @@ h1 {
   -moz-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.37);
 }
 #save-btn:hover { opacity: 0.85; }
- 
+
 /* Paleta generada */
 #feedback {
     color: #aaa;
     margin-top: 10px;
 }
- 
+
 #palette-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 15px;
   margin-top: 20px;
   padding-left: 50px;
   padding-right: 50px;
 }
- 
+
 .color-box {
   display: flex;
   flex-direction: column;
@@ -134,7 +152,7 @@ h1 {
   border-radius: 8px;
   color: #fff;
   font-weight: bold;
-  padding: 14px 8px;
+  padding: 14px 10px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   opacity: 0;
   transform: translateY(30px);
@@ -143,107 +161,90 @@ h1 {
   -webkit-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.58);
   -moz-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.58);
   transition: box-shadow 0.3s ease;
-  overflow: hidden;
-  box-sizing: border-box;
 }
 @keyframes showUp { to { opacity: 1; transform: translateY(0); } }
- 
+
 /* Resalte visual cuando el color está bloqueado */
 .color-box.locked {
   box-shadow: 0 0 0 2px #ffd166, 5px 5px 5px -1px rgba(0,0,0,0.58);
 }
- 
+
 .color-code {
   background: rgba(0,0,0,0.4);
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 0.9rem;
 }
- 
+
 /* Barra de acciones (Lock / Copy) dentro de cada color-box */
 .box-actions {
   display: flex;
   align-items: center;
-  width: 100%;
-  max-width: 100%;
   background: rgba(255, 255, 255, 0.16);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 30px;
-  padding: 3px 4px;
-  gap: 2px;
-  box-sizing: border-box;
-  overflow: hidden;
+  padding: 4px 6px;
+  gap: 4px;
 }
- 
+
 .action-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex: 1;
-  min-width: 0;
-  gap: 3px;
+  gap: 5px;
   background: transparent;
   border: none;
   color: #fff;
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  padding: 4px 5px;
+  padding: 5px 8px;
   border-radius: 20px;
   cursor: pointer;
   transition: background 0.2s ease;
 }
- 
+
 .action-btn:hover {
   background: rgba(255, 255, 255, 0.25);
 }
- 
-.action-btn span:not(.dot) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
- 
+
 .action-btn svg {
-  width: 12px;
-  height: 12px;
-  flex-shrink: 0;
-}
- 
-.action-divider {
-  width: 1px;
+  width: 14px;
   height: 14px;
   flex-shrink: 0;
+}
+
+.action-divider {
+  width: 1px;
+  height: 16px;
   background: rgba(255, 255, 255, 0.3);
 }
- 
+
 /* Puntito indicador a la derecha de cada botón */
 .dot {
-  width: 6px;
-  height: 6px;
-  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   border: 1.5px solid rgba(255, 255, 255, 0.6);
-  margin-left: 1px;
+  margin-left: 2px;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
- 
+
 .color-box.locked .lock-btn .dot {
   background: #ffd166;
   border-color: #ffd166;
 }
- 
+
 /* Paletas guardadas */
 #saved-palettes{
     margin-top: 40px;
 }
- 
+
 #saved-list{
     display: flex;
     justify-content: flex-start;
 }
- 
+
 .saved-palette {
 	background: #2a2a3d;
 	border-radius: 12px;
@@ -256,7 +257,7 @@ h1 {
 .saved-palette p { font-size: 0.8rem; color: #aaa; }
 .saved-palette .colors { display: flex; gap: 5px; margin-top: 10px; }
 .saved-palette .color-box { height: 60px; flex: 1; padding: 0; }
- 
+
 /* Toast */
 .toast {
   position: fixed;
@@ -273,7 +274,8 @@ h1 {
   z-index: 9999;
 }
 .toast.show { opacity: 1; transform: translateY(0); }
- 
+
 .footer{
     color: #aaa;
+    margin-top: 20px;
 }
