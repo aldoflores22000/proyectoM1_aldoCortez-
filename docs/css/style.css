@@ -40,12 +40,29 @@ nav {
 }
 
 h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   margin: 30px auto;
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1 .accent {
+  font-family: 'Dancing Script', cursive;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1.2;
+  background: linear-gradient(45deg, #ff6a00, #ee0979, #0077cc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Panel dividido */
