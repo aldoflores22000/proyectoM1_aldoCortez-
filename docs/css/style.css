@@ -11,14 +11,15 @@ body {
   min-height: 100vh;
   padding: 10px;  
   text-align: center;
+  transform: scale(0.95); 
+  transform-origin: top left;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.19);
+    padding-right: 2rem;    
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1rem;
     padding: 1rem 2rem;
@@ -32,6 +33,7 @@ nav {
     color: #eee;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
+    font-size: 35px
     
 }
 
@@ -49,12 +51,13 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  margin: 30px auto;
+  text-align: center;  
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #fff;
 }
 
 h1 .accent {
@@ -65,9 +68,17 @@ h1 .accent {
   font-size: 2.6rem;
   line-height: 1.2;
   background: linear-gradient(45deg, #ff6a00, #ee0979, #0077cc);
+  background-size: 300%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: gradiente 6s ease infinite;
+}
+
+@keyframes gradiente {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Panel dividido */
@@ -122,8 +133,7 @@ h1 .accent {
 #generate-btn {
   background: #0077cc;
   color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-weight: bold;  
   padding: 12px 25px;
   border-radius: 8px;
   border: none;
@@ -137,8 +147,7 @@ h1 .accent {
 #save-btn {
   background: linear-gradient(45deg, #ff6a00, #ee0979);
   color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-weight: bold;  
   padding: 12px 25px;
   border-radius: 8px;
   border: none;
@@ -156,12 +165,16 @@ h1 .accent {
 }
 
 #palette-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(170px, auto));
+	gap: 15px;
+	margin-top: 20px;
+	max-width: 1000px;
+	align-content: center;
+	justify-content: center;
+	justify-items: center;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .color-box {
@@ -202,7 +215,7 @@ h1 .accent {
 .box-actions {
   display: flex;
   align-items: center;
-  background: rgb(107 99 99 / 66%);
+  background: rgb(248, 247, 247);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -217,7 +230,7 @@ h1 .accent {
   gap: 5px;
   background: transparent;
   border: none;
-  color: #fff;
+  color: #1b1b1b;
   font-size: 0.72rem;
   font-weight: 600;
   padding: 5px 8px;
@@ -227,7 +240,7 @@ h1 .accent {
 }
 
 .action-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(136, 135, 135, 0.25);
 }
 
 .action-btn svg {
@@ -247,7 +260,7 @@ h1 .accent {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border: 1.5px solid rgba(25, 25, 25, 0.6);
   margin-left: 2px;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
@@ -275,10 +288,44 @@ h1 .accent {
 	margin-right: 40px;
 	width: 30%;
 }
+
+.saved-palette-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+
 .saved-palette h3 { margin: 0; color: #fff; }
 .saved-palette p { font-size: 0.8rem; color: #aaa; }
 .saved-palette .colors { display: flex; gap: 5px; margin-top: 10px; }
 .saved-palette .color-box { height: 60px; flex: 1; padding: 0; }
+
+.show-palette-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.show-palette-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+.show-palette-btn svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
 
 /* Toast */
 .toast {
