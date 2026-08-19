@@ -398,3 +398,9 @@ h1 .accent {
     color: #aaa;
     margin-top: 20px;
 }
+
+@media (max-width: 768px) {
+  .subtitle {
+    display: none;
+  }
+}
