@@ -45,6 +45,16 @@ ul {
   list-style-type: none;
 }
 
+/* Texto guía pequeño arriba del título (eyebrow) */
+.eyebrow {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #6bc7ff;
+  margin-top: 10px;
+}
 
 h1 {
   display: flex;
@@ -58,6 +68,7 @@ h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   color: #fff;
+  margin-top: 8px;
 }
 
 h1 .accent {
@@ -81,6 +92,45 @@ h1 .accent {
   100% { background-position: 0% 50%; }
 }
 
+/* Subtítulo guía debajo del título principal */
+.subtitle {
+  text-align: center;
+  color: #c3c3d6;
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 10px auto 0;
+}
+
+/* Encabezado + texto guía de cada sección (Configura tu paleta / Tu paleta / Paletas guardadas) */
+.section-intro {
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto 15px;
+  padding-left: 14px;
+  border-left: 3px solid;
+  border-image: linear-gradient(180deg, #ff6a00, #ee0979, #0077cc) 1;
+}
+
+.section-intro h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.section-intro p {
+  font-size: 0.85rem;
+  color: #b3b3c9;
+}
+
+.control-panel-wrapper {
+  margin-top: 40px;
+}
+
+.palette-section {
+  margin-top: 40px;
+}
+
 /* Panel dividido */
 .control-panel {
   display: flex;
@@ -91,7 +141,7 @@ h1 .accent {
   padding: 25px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
   max-width: 1000px;
-  margin: 40px auto;
+  margin: 0 auto;
 }
 
 .left-controls, .right-controls {
@@ -160,7 +210,7 @@ h1 .accent {
 
 /* Paleta generada */
 #feedback {
-    color: #aaa;
+    color: #c3c3d6;
     margin-top: 10px;
 }
 
