@@ -20,47 +20,64 @@
         <li>Acerca de</li>
       </ul>
     </nav>
+    <p class="eyebrow">Herramienta de color</p>
     <h1>Genera tus paletas <span class="accent">de colores</span></h1>
+    <p class="subtitle">Crea una paleta de colores aleatoria de forma rápida y sencilla.</p>
   </header>
 
   <main>
     <!-- Barra de control dividida -->
-    <section class="control-panel">
-      <!-- Área izquierda -->
-      <div class="left-controls">
-        <div class="selector-block">
-          <label>Cantidad de Paletas</label>
-          <div class="palette-size-options">
-            <button class="size-btn active" data-size="6">6</button>
-            <button class="size-btn" data-size="8">8</button>
-            <button class="size-btn" data-size="9">9</button>
-          </div>
-        </div>
-        <button id="generate-btn">Generar paleta</button>
+    <section class="control-panel-wrapper">
+      <div class="section-intro">
+        <h2>Configura tu paleta</h2>
+        <p>Selecciona la cantidad de colores y el formato que quieres utilizar.</p>
       </div>
-
-      <!-- Área derecha -->
-      <div class="right-controls">
-        <div class="selector-block">
-          <label>Formato</label>
-          <div class="format-options">
-            <button class="format-btn active" data-format="hsl">HSL</button>
-            <button class="format-btn" data-format="hex">HEX</button>
+      <div class="control-panel">
+        <!-- Área izquierda -->
+        <div class="left-controls">
+          <div class="selector-block">
+            <label>Cantidad de Paletas</label>
+            <div class="palette-size-options">
+              <button class="size-btn active" data-size="6">6</button>
+              <button class="size-btn" data-size="8">8</button>
+              <button class="size-btn" data-size="9">9</button>
+            </div>
           </div>
+          <button id="generate-btn">Generar paleta</button>
         </div>
-        <button id="save-btn">Guardar Paleta</button>
+
+        <!-- Área derecha -->
+        <div class="right-controls">
+          <div class="selector-block">
+            <label>Formato</label>
+            <div class="format-options">
+              <button class="format-btn active" data-format="hsl">HSL</button>
+              <button class="format-btn" data-format="hex">HEX</button>
+            </div>
+          </div>
+          <button id="save-btn">Guardar Paleta</button>
+        </div>
       </div>
     </section>
 
     <!-- Paleta generada -->
-    <section id="palette-container"></section>
+    <section class="palette-section">
+      <div class="section-intro">
+        <h2>Tu paleta</h2>
+        <p>Usa <strong>Copy</strong> para copiar un código, <strong>Lock</strong> para bloquear un color y guarda la paleta si quieres conservarla.</p>
+      </div>
+      <section id="palette-container"></section>
+    </section>
 
     <!-- Feedback -->
     <section id="feedback"></section>
 
     <!-- Paletas guardadas -->
     <section id="saved-palettes">
-      <h2>Paletas guardadas</h2>
+      <div class="section-intro">
+        <h2>Paletas guardadas</h2>
+        <p>Vuelve a ver cualquier paleta que hayas guardado antes.</p>
+      </div>
       <div id="saved-list"></div>
     </section>
   </main>
