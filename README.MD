@@ -147,21 +147,7 @@ En cualquiera de estas opciones, asegúrate de que la estructura de carpetas (`c
 ## Prompts utilizados
 
 Registro de los prompts usados para construir/documentar algunas de las funciones de `script.js`, como respaldo del proceso de desarrollo asistido.
-
-**1. Generación de colores (HSL y HEX)**
-> "necesito ayuda con la funcion que me genera paletas (no corre), ocupo que me genere colores hsl y hex y que me genere el codigo de color"
-
-Resultado: `getRandomHex()`, `getRandomHSL()`, `getRandomColor()` y `generatePalette()`.
-
-**2. Guardar y volver a mostrar una paleta**
-> "necesito una funcion que guarde la paleta de colores y se pueda visualizar despues en la misma area que se muestra la paleta de colores."
-
-Resultado: el evento del `saveBtn`, `renderSavedPalettes()` y `loadSavedPalette()` (esta última reutiliza `renderPalette()` para pintar la paleta guardada en `#palette-container`, el mismo lugar donde se genera).
-
-**3. Bloquear colores y copiar el código**
-> "necesito me ayudes con la funcion de copiar codigo y bloquear los cuadros de colores generados para que no se generen en el bloque bloqueado y generar un boton para los mismos"
-
-Resultado: `buildColorBox()` con los botones **Lock** y **Copy** por casilla, y el ajuste en `generatePalette()` que conserva el color de las casillas bloqueadas.
+.
 
 
 
