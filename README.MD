@@ -1,5 +1,7 @@
 # 🎨 Colorfly Studio
 
+link: https://aldoflores22000.github.io/proyectoM1_aldoCortez-/
+
 Generador de paletas de colores en el navegador. Permite generar paletas aleatorias en formato **HEX** o **HSL**, bloquear los colores que quieras conservar, copiarlos con un clic y guardar paletas completas para consultarlas después.
 
 ## Índice
@@ -39,9 +41,9 @@ colorfly-studio/
     └── logo-color-fly-web.png
 ```
 
-## Instrucciones de uso
+## Instrucciones de uso (
 
-1. Abre `index.html` en el navegador.
+1. Abre `en el navegador y entra al site: https://aldoflores22000.github.io/proyectoM1_aldoCortez-/.
 2. En el panel de control, izquierdo:
    - Elige la **cantidad de colores** de la paleta (6, 8 o 9).
    - Pulsa **Generar paleta** para crear una nueva combinación aleatoria.
@@ -202,7 +204,7 @@ Registro de los prompts usados para construir/documentar algunas de las funcione
 **1. Generación de colores (HSL y HEX)**
 > "necesito ayuda con la funcion que me genera paletas (no corre), ocupo que me genere colores hsl y hex y que me genere el codigo de color"
 
-<img src="/Documentacion/prompt-scrip-generadordecolor.jpg" alt="Logo del proyecto" width="600">
+<img src="/Documentacion/prompt-scrip-generadordecolor.jpg" alt="prompt" width="600">
 
 
 Resultado: `getRandomHex()`, `getRandomHSL()`, `getRandomColor()` y `generatePalette()`.
@@ -210,10 +212,14 @@ Resultado: `getRandomHex()`, `getRandomHSL()`, `getRandomColor()` y `generatePal
 **2. Guardar y volver a mostrar una paleta**
 > "necesito una funcion que guarde la paleta de colores y se pueda visualizar despues en la misma area que se muestra la paleta de colores."
 
+<img src="/Documentacion/prompt-scrip-guardadopaleta.jpg" alt="prompt" width="600">
+
 Resultado: el evento del `saveBtn`, `renderSavedPalettes()` y `loadSavedPalette()` (esta última reutiliza `renderPalette()` para pintar la paleta guardada en `#palette-container`, el mismo lugar donde se genera).
 
 **3. Bloquear colores y copiar el código**
 > "necesito me ayudes con la funcion de copiar codigo y bloquear los cuadros de colores generados para que no se generen en el bloque bloqueado y generar un boton para los mismos"
+
+<img src="/Documentacion/prompt-script-bloqueoColores.jpg" alt="prompt" width="600">
 
 Resultado: `buildColorBox()` con los botones **Lock** y **Copy** por casilla, y el ajuste en `generatePalette()` que conserva el color de las casillas bloqueadas.
 
@@ -221,3 +227,5 @@ Resultado: `buildColorBox()` con los botones **Lock** y **Copy** por casilla, y 
 
 - Las paletas guardadas y los bloqueos (`Lock`) se pierden al recargar la página, ya que no hay persistencia en `localStorage` ni backend.
 - `navigator.clipboard.writeText` requiere un contexto seguro (`https://` o `localhost`); si se abre el proyecto directamente como `file://` en algunos navegadores, copiar puede no funcionar y conviene usar un servidor local.
+
+https://aldoflores22000.github.io/proyectoM1_aldoCortez-/
