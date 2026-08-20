@@ -202,7 +202,7 @@ Registro de los prompts usados para construir/documentar algunas de las funcione
 **1. Generación de colores (HSL y HEX)**
 > "necesito ayuda con la funcion que me genera paletas (no corre), ocupo que me genere colores hsl y hex y que me genere el codigo de color"
 
-<img src="/Documentacion/prompt-scrip-generadordecolor.jpg" alt="Logo del proyecto" width="600">
+<img src="/Documentacion/prompt-scrip-generadordecolor.jpg" alt="prompt" width="600">
 
 
 Resultado: `getRandomHex()`, `getRandomHSL()`, `getRandomColor()` y `generatePalette()`.
@@ -210,14 +210,14 @@ Resultado: `getRandomHex()`, `getRandomHSL()`, `getRandomColor()` y `generatePal
 **2. Guardar y volver a mostrar una paleta**
 > "necesito una funcion que guarde la paleta de colores y se pueda visualizar despues en la misma area que se muestra la paleta de colores."
 
-<img src="/Documentacion/prompt-scrip-guardadopaleta.jpg" alt="Logo del proyecto" width="600">
+<img src="/Documentacion/prompt-scrip-guardadopaleta.jpg" alt="prompt" width="600">
 
 Resultado: el evento del `saveBtn`, `renderSavedPalettes()` y `loadSavedPalette()` (esta última reutiliza `renderPalette()` para pintar la paleta guardada en `#palette-container`, el mismo lugar donde se genera).
 
 **3. Bloquear colores y copiar el código**
 > "necesito me ayudes con la funcion de copiar codigo y bloquear los cuadros de colores generados para que no se generen en el bloque bloqueado y generar un boton para los mismos"
 
-<img src="/Documentacion/prompt-script-bloqueoColores" alt="Logo del proyecto" width="600">
+<img src="/Documentacion/prompt-script-bloqueoColores.jpg" alt="prompt" width="600">
 
 Resultado: `buildColorBox()` con los botones **Lock** y **Copy** por casilla, y el ajuste en `generatePalette()` que conserva el color de las casillas bloqueadas.
 
