@@ -1,5 +1,7 @@
 # 🎨 Colorfly Studio
 
+link: https://aldoflores22000.github.io/proyectoM1_aldoCortez-/
+
 Generador de paletas de colores en el navegador. Permite generar paletas aleatorias en formato **HEX** o **HSL**, bloquear los colores que quieras conservar, copiarlos con un clic y guardar paletas completas para consultarlas después.
 
 ## Índice
@@ -39,9 +41,9 @@ colorfly-studio/
     └── logo-color-fly-web.png
 ```
 
-## Instrucciones de uso
+## Instrucciones de uso (
 
-1. Abre `index.html` en el navegador.
+1. Abre `en el navegador y entra al site: https://aldoflores22000.github.io/proyectoM1_aldoCortez-/.
 2. En el panel de control, izquierdo:
    - Elige la **cantidad de colores** de la paleta (6, 8 o 9).
    - Pulsa **Generar paleta** para crear una nueva combinación aleatoria.
@@ -225,3 +227,5 @@ Resultado: `buildColorBox()` con los botones **Lock** y **Copy** por casilla, y 
 
 - Las paletas guardadas y los bloqueos (`Lock`) se pierden al recargar la página, ya que no hay persistencia en `localStorage` ni backend.
 - `navigator.clipboard.writeText` requiere un contexto seguro (`https://` o `localhost`); si se abre el proyecto directamente como `file://` en algunos navegadores, copiar puede no funcionar y conviene usar un servidor local.
+
+https://aldoflores22000.github.io/proyectoM1_aldoCortez-/
