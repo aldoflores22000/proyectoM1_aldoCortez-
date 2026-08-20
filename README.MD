@@ -202,7 +202,7 @@ Registro de los prompts usados para construir/documentar algunas de las funcione
 **1. Generación de colores (HSL y HEX)**
 > "necesito ayuda con la funcion que me genera paletas (no corre), ocupo que me genere colores hsl y hex y que me genere el codigo de color"
 
-<img src="/Documentacion/prompt-scrip-generadordecolor.jpg" alt="Logo del proyecto" width="200">
+<img src="/Documentacion/prompt-scrip-generadordecolor.jpg" alt="Logo del proyecto" width="600">
 
 
 Resultado: `getRandomHex()`, `getRandomHSL()`, `getRandomColor()` y `generatePalette()`.
