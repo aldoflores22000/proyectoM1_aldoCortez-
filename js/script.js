@@ -81,6 +81,8 @@ function generatePalette() {
   boxStates = newStates;
   renderPalette();
   feedback.textContent = `Se generó una paleta de ${currentSize} colores en formato ${currentFormat.toUpperCase()} 🎨`;
+  
+  
 }
  
 // Dibuja todas las casillas a partir de boxStates
