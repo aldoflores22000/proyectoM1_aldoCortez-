@@ -8,6 +8,7 @@ Generador de paletas de colores en el navegador. Permite generar paletas aleator
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Instrucciones de uso](#instrucciones-de-uso)
 - [Funciones principales (script.js)](#funciones-principales-scriptjs)
+- [Flujo completo resumido](#flujo-completo-resumido)
 - [Decisiones técnicas](#decisiones-técnicas)
 - [Requisitos](#requisitos)
 - [Cómo ejecutarlo en local](#cómo-ejecutarlo-en-local)
@@ -76,7 +77,57 @@ Documentación rápida de las funciones clave de la lógica, por si necesitas ub
 - **`renderSavedPalettes()`**: dibuja una tarjeta por cada paleta guardada (nombre, fecha, vista previa de colores) en `#saved-list`, incluyendo el botón **Ver**.
 - **`loadSavedPalette(palette)`**: toma los colores de una paleta guardada, los convierte de vuelta en `boxStates` (todos desbloqueados), actualiza `currentSize` y llama a `renderPalette()` — la misma función que usa el generador — para mostrarla en `#palette-container`, es decir, en la misma área donde se generan las paletas nuevas. También hace scroll suave hasta esa sección.
 
+## Flujo completo resumido
 
+Árbol de llamadas de cada acción del usuario, tal como está implementado en `script.js`.
+
+```
+La página carga
+ └─ DOMContentLoaded → generatePalette()
+      ├─ boxStates[i] = { color: getRandomColor(), locked: false }  (para cada casilla)
+      └─ renderPalette() → paletteContainer.innerHTML reconstruido con buildColorBox()
+
+Usuario hace clic en "Generar paleta"
+ └─ generatePalette()
+      ├─ Casillas NO bloqueadas → getRandomColor() (nuevo hsl()/hex())
+      ├─ Casillas bloqueadas    → se conserva el objeto boxStates[i] anterior
+      └─ renderPalette() → DOM actualizado
+      └─ feedback.textContent actualizado ("Se generó una paleta de N colores...")
+
+Usuario cambia "Cantidad de colores" o "Formato"
+ └─ sizeButtons / formatButtons (evento click)
+      ├─ currentSize / currentFormat actualizados
+      └─ generatePalette()  (se regenera de inmediato)
+
+Usuario hace clic en "Copy" de una casilla
+ └─ copyBtn (evento click, con e.stopPropagation())
+      ├─ navigator.clipboard.writeText(state.color)
+      └─ showToast(`Código ${state.color} copiado ✅`)
+
+Usuario hace clic en "Lock" de una casilla
+ └─ lockBtn (evento click, con e.stopPropagation())
+      ├─ boxStates[index].locked = !boxStates[index].locked
+      └─ renderPalette() → casilla recibe/pierde clase .locked (borde dorado)
+
+Usuario hace clic en "Guardar Paleta"
+ └─ saveBtn (evento click)
+      ├─ colors = boxStates.map(s => s.color)
+      ├─ prompt() → nombre de la paleta
+      ├─ savedPalettes.push({ name, colors, date })
+      ├─ renderSavedPalettes() → nueva tarjeta en #saved-list
+      └─ showToast("Paleta guardada ✅")
+
+Usuario hace clic en "Ver" sobre una paleta guardada
+ └─ showPaletteBtn (evento click, con e.stopPropagation())
+      └─ loadSavedPalette(palette)
+           ├─ boxStates = palette.colors.map(color => ({ color, locked: false }))
+           ├─ currentSize = boxStates.length
+           ├─ renderPalette() → la paleta guardada se pinta en #palette-container
+           ├─ feedback.textContent actualizado ("Mostrando la paleta guardada...")
+           └─ scrollIntoView() hasta el generador
+```
+
+## Decisiones técnicas
 
 - **Sin frameworks ni librerías externas**: todo el proyecto está hecho en HTML, CSS y JavaScript "vanilla" para mantenerlo ligero y fácil de desplegar en cualquier hosting estático.
 - **Estado centralizado en `boxStates`**: en lugar de generar el DOM directamente al azar, cada casilla se representa como un objeto `{ color, locked }` guardado en el arreglo `boxStates`. Al generar una nueva paleta, el código recorre ese arreglo y solo reemplaza los colores que **no** están bloqueados, conservando los que sí lo están. Esto evita tener que "leer" el color desde el DOM y hace el comportamiento de Lock predecible.
@@ -147,7 +198,21 @@ En cualquiera de estas opciones, asegúrate de que la estructura de carpetas (`c
 ## Prompts utilizados
 
 Registro de los prompts usados para construir/documentar algunas de las funciones de `script.js`, como respaldo del proceso de desarrollo asistido.
-.
+
+**1. Generación de colores (HSL y HEX)**
+> "necesito ayuda con la funcion que me genera paletas (no corre), ocupo que me genere colores hsl y hex y que me genere el codigo de color"
+
+Resultado: `getRandomHex()`, `getRandomHSL()`, `getRandomColor()` y `generatePalette()`.
+
+**2. Guardar y volver a mostrar una paleta**
+> "necesito una funcion que guarde la paleta de colores y se pueda visualizar despues en la misma area que se muestra la paleta de colores."
+
+Resultado: el evento del `saveBtn`, `renderSavedPalettes()` y `loadSavedPalette()` (esta última reutiliza `renderPalette()` para pintar la paleta guardada en `#palette-container`, el mismo lugar donde se genera).
+
+**3. Bloquear colores y copiar el código**
+> "necesito me ayudes con la funcion de copiar codigo y bloquear los cuadros de colores generados para que no se generen en el bloque bloqueado y generar un boton para los mismos"
+
+Resultado: `buildColorBox()` con los botones **Lock** y **Copy** por casilla, y el ajuste en `generatePalette()` que conserva el color de las casillas bloqueadas.
 
 
 
