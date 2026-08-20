@@ -164,6 +164,9 @@ saveBtn.addEventListener("click", () => {
     savedPalettes.push(palette);
     renderSavedPalettes();
     showToast("Paleta guardada ✅");
+
+    // Bajar hacia el área de paletas guardadas
+    savedList.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 });
  
